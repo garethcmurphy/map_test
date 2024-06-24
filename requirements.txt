@@ -1,4 +1,5 @@
 folium
 beautifulsoup4
 matplotlib
+basemap
 requests
