@@ -1,4 +1,6 @@
-
+"""_summary_
+setup map in python
+  """
 import matplotlib.pyplot as plt
 from mpl_toolkits.basemap import Basemap
 
@@ -44,5 +46,4 @@ class Mapper():
 
 
 if __name__ == "__main__":
-    map = Mapper()
-    pass
+    map1  = Mapper()
