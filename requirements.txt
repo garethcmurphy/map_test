@@ -1,5 +1,5 @@
-folium
-beautifulsoup4
-matplotlib
 basemap
+beautifulsoup4
+folium
+matplotlib
 requests
