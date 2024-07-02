@@ -1,6 +1,5 @@
 import streamlit as st
 import folium
-from folium.features import CircleMarker
 
 # Define your data (replace with your actual data)
 data = {
@@ -12,14 +11,14 @@ data = {
 # Create a base map centered on a certain location (adjust as needed)
 m = folium.Map(location=[48.8566, 2.3522], zoom_start=3)  # Centered on Paris
 
-# Iterate through data and add markers with popups
+# Add markers using a loop
 for i in range(len(data["Latitude"])):
   latitude = data["Latitude"][i]
   longitude = data["Longitude"][i]
   name = data["Names"][i]
-  marker = CircleMarker(location=[latitude, longitude], radius=5, popup=name, color='red')  # Adjust marker size and color
-  marker.add_to(m)
+  folium.Marker([latitude, longitude], popup=name, icon=folium.Icon(color='red')).add_to(m)  # CircleMarker or other icons
 
-# Add map to Streamlit app
+# Display the map in Streamlit
 st.title("Map with Points")
-st.folium_map(m)
+map_html = m._repr_html_()
+st.markdown(map_html, unsafe_allow_html=True)
