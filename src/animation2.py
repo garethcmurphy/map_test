@@ -1,4 +1,3 @@
-
 import folium
 from folium import Marker
 from matplotlib.animation import FuncAnimation
@@ -18,18 +17,22 @@ longitude = -8.1436
 # Create base map
 m = folium.Map(location=[latitude, longitude], zoom_start=6)
 
+
 # Function to animate markers
 def animate(frame):
-  m.clear_layers()  # Clear previous markers
-  marker = Marker([battles[frame]["Latitude"], battles[frame]["Longitude"]])
-  marker.add_to(m)
-  return m
+    m.clear_layers()  # Clear previous markers
+    marker = Marker([battles[frame]["Latitude"], battles[frame]["Longitude"]])
+    marker.add_to(m)
+    return m
+
 
 # Create animation object
-anim = FuncAnimation(plt.figure(figsize=(8, 6)), animate, frames=len(battles), interval=1000)
+anim = FuncAnimation(
+    plt.figure(figsize=(8, 6)), animate, frames=len(battles), interval=1000
+)
 
 # Save animation as MP4 (replace filename)
-anim.save('irish_battles_animation.mp4', fps=1)
+anim.save("irish_battles_animation.mp4", fps=1)
 
 # Display animation (optional)
 plt.show()
